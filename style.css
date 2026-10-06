@@ -89,7 +89,7 @@ a:hover {
 }
 
 /* =========================================
-   4. SECTIONS & ACCORDIONS
+   4. SECTIONS (always open)
    ========================================= */
 section { margin-bottom: 45px; }
 
@@ -98,43 +98,13 @@ h3 {
     text-transform: uppercase;
     letter-spacing: 1.5px;
     color: #999;
-    margin-bottom: 25px;
+    margin: 0 0 25px 0;
     font-weight: 700;
     border-bottom: 1px solid #eee;
-    padding-bottom: 10px;
-}
-
-h3.accordion-header {
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: color 0.2s, background-color 0.2s;
     padding: 10px;
-    border-radius: 5px;
-    user-select: none;
 }
 
-h3.accordion-header:hover { background-color: #f7f7f7; color: #333; }
-h3.accordion-header:focus-visible { outline: 2px solid #0056b3; outline-offset: 2px; }
-
-h3.accordion-header .icon { font-size: 12px; transition: transform 0.3s ease; }
-h3.accordion-header.active .icon { transform: rotate(180deg); }
-
-.accordion-content {
-    display: none;
-    padding: 10px 10px 20px 10px;
-}
-
-.accordion-content.open {
-    display: block;
-    animation: slideDown 0.3s ease-out;
-}
-
-@keyframes slideDown {
-    from { opacity: 0; transform: translateY(-5px); }
-    to   { opacity: 1; transform: translateY(0); }
-}
+.section-content { padding: 10px 10px 20px 10px; }
 
 .interests { font-size: 13px; list-style-type: square; padding-left: 20px; }
 
@@ -181,10 +151,16 @@ h3.accordion-header.active .icon { transform: rotate(180deg); }
 .t-desc li { margin-bottom: 4px; }
 
 /* =========================================
-   6. NEWS & QUOTES
+   6. NEWS, PUBLICATIONS & QUOTES
    ========================================= */
 .news-item { display: flex; margin-bottom: 15px; font-size: 13px; }
 .news-date { min-width: 90px; font-weight: 700; color: #444; font-size: 12px; text-transform: uppercase; padding-top: 2px; }
+
+.pub-item { padding: 0 10px; }
+.pub-item p { margin: 2px 0; }
+.pub-title { font-weight: 700; font-size: 15px; color: #222; }
+.pub-authors, .pub-venue { color: #555; font-size: 13px; }
+.pub-links { font-size: 13px; margin-top: 6px; }
 
 .quote-block {
     margin: 25px 0 0;
@@ -230,12 +206,15 @@ body.dark-mode .main-wrapper {
 
 body.dark-mode .header-content h1,
 body.dark-mode .t-title,
+body.dark-mode .pub-title,
 body.dark-mode .news-date,
 body.dark-mode .quote-author { color: #fff; }
 
 body.dark-mode .header-content p,
 body.dark-mode .t-role,
 body.dark-mode .t-desc,
+body.dark-mode .pub-authors,
+body.dark-mode .pub-venue,
 body.dark-mode .quote-text { color: #b0b0b0; }
 
 body.dark-mode .t-date { color: #999; }
@@ -247,8 +226,6 @@ body.dark-mode .social-links a:hover { color: #8ab4f8; }
 body.dark-mode a { color: #8ab4f8; }
 body.dark-mode a:hover { background-color: rgba(138, 180, 248, 0.1); border-bottom-color: #8ab4f8; }
 
-body.dark-mode h3.accordion-header:hover { background-color: #333; color: #fff; }
-body.dark-mode h3.accordion-header:focus-visible { outline-color: #8ab4f8; }
 body.dark-mode .timeline { border-left-color: #333; }
 body.dark-mode .timeline-item:hover { background-color: #252525; box-shadow: none; }
 body.dark-mode .timeline-item::before { background-color: #1e1e1e; border-color: #888; }
