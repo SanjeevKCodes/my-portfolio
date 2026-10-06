@@ -1,80 +1,60 @@
-document.addEventListener('DOMContentLoaded', function() {
-    
-    // ==========================================
-    // PART 1: Highlight Active Menu Tab
-    // ==========================================
-    const currentLocation = location.href;
-    const menuItems = document.querySelectorAll('.nav-tabs a');
-
-    menuItems.forEach(item => {
-        // 1. Check if the link matches the current URL exactly
-        if (item.href === currentLocation) {
-            item.classList.add('active');
-        } 
-        // 2. Fallback: If on the homepage but URL ends in just "/" (e.g. domain.com/)
-        // ensure index.html is highlighted
-        else if (currentLocation.endsWith('/') && item.getAttribute('href') === 'index.html') {
-            item.classList.add('active');
-        }
-        else {
-            item.classList.remove('active');
-        }
-    });
+document.addEventListener('DOMContentLoaded', function () {
 
     // ==========================================
-    // PART 2: Accordion Functionality
+    // PART 1: Accordion Functionality
     // ==========================================
-    const headers = document.querySelectorAll(".accordion-header");
-    
+    const headers = document.querySelectorAll('.accordion-header');
+
     headers.forEach(header => {
-        header.addEventListener("click", function() {
-            // Toggle the 'active' class (rotates the arrow icon via CSS)
-            this.classList.toggle("active");
-            
-            // Get the content div immediately following the header
-            const content = this.nextElementSibling;
-            
-            // Toggle display
-            if (content.style.display === "block") {
-                content.style.display = "none";
-            } else {
-                content.style.display = "block";
+        const content = header.nextElementSibling;
+        if (!content) return;
+
+        // Accessibility: make headers keyboard-operable
+        header.setAttribute('role', 'button');
+        header.setAttribute('tabindex', '0');
+        header.setAttribute('aria-expanded', content.classList.contains('open'));
+
+        const toggle = () => {
+            const isOpen = content.classList.toggle('open');
+            header.classList.toggle('active', isOpen);
+            header.setAttribute('aria-expanded', isOpen);
+        };
+
+        header.addEventListener('click', toggle);
+        header.addEventListener('keydown', e => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggle();
             }
         });
     });
 
     // ==========================================
-    // PART 3: Dark Mode Logic
+    // PART 2: Dark Mode Logic
     // ==========================================
     const toggleBtn = document.getElementById('theme-toggle');
     const body = document.body;
 
-    // Safety check: Only run this if the button exists on the page
     if (toggleBtn) {
-        
-        // A. Check LocalStorage (Remember user preference on refresh)
-        const savedTheme = localStorage.getItem('theme');
+        const setLabel = isDark => {
+            toggleBtn.innerHTML = isDark
+                ? '<i class="fas fa-sun"></i> Light Mode'
+                : '<i class="fas fa-moon"></i> Dark Mode';
+        };
+
+        // Restore saved preference (storage can be unavailable, so guard it)
+        let savedTheme = null;
+        try { savedTheme = localStorage.getItem('theme'); } catch (e) {}
+
         if (savedTheme === 'dark') {
             body.classList.add('dark-mode');
-            toggleBtn.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
+            setLabel(true);
         }
 
-        // B. Add Click Event Listener
         toggleBtn.addEventListener('click', () => {
-            // Toggle the class
-            body.classList.toggle('dark-mode');
-            
-            // Check if dark mode is now ON or OFF
-            if (body.classList.contains('dark-mode')) {
-                // It is now Dark
-                localStorage.setItem('theme', 'dark'); // Save to storage
-                toggleBtn.innerHTML = '<i class="fas fa-sun"></i> Light Mode'; // Change text
-            } else {
-                // It is now Light
-                localStorage.setItem('theme', 'light'); // Save to storage
-                toggleBtn.innerHTML = '<i class="fas fa-moon"></i> Dark Mode'; // Change text
-            }
+            const isDark = body.classList.toggle('dark-mode');
+            setLabel(isDark);
+            try { localStorage.setItem('theme', isDark ? 'dark' : 'light'); } catch (e) {}
         });
     }
-
 });
