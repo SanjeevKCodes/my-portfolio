@@ -1,143 +1,109 @@
 /* =========================================
    1. CORE STYLES & ANIMATIONS
    ========================================= */
-html {
-    scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
-body { 
-    font-family: 'Raleway', sans-serif; 
-    color: #333; 
-    line-height: 1.7; 
-    font-size: 14px; 
-    margin: 0; 
-    background-color: #fafafa; 
-    transition: background-color 0.3s, color 0.3s; /* Smooth dark mode transition */
-    animation: fadeInPage 0.6s ease-out; /* Page load animation */
+body {
+    font-family: 'Raleway', sans-serif;
+    color: #333;
+    line-height: 1.7;
+    font-size: 14px;
+    margin: 0;
+    background-color: #fafafa;
+    transition: background-color 0.3s, color 0.3s;
+    animation: fadeInPage 0.6s ease-out;
 }
 
 @keyframes fadeInPage {
     from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
-.main-wrapper { 
-    max-width: 800px; 
-    margin: 60px auto; 
-    background: #fff; 
-    padding: 50px; 
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
-    border-radius: 8px; 
+.main-wrapper {
+    max-width: 800px;
+    margin: 60px auto;
+    background: #fff;
+    padding: 50px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border-radius: 8px;
     transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 /* =========================================
    2. HEADER & PROFILE
    ========================================= */
-header { 
-    display: flex; 
-    align-items: center; 
-    gap: 30px; 
-    margin-bottom: 40px; 
+header {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 40px;
 }
 
-.avatar { 
-    width: 130px; 
-    height: 130px; 
-    border-radius: 50%; 
-    object-fit: cover; 
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1); 
+.avatar {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     border: 3px solid #fff;
 }
 
-.header-content h1 { 
-    font-size: 26px; 
-    font-weight: 700; 
-    margin: 0 0 5px 0; 
-    letter-spacing: -0.5px; 
-    color: #222; 
+.header-content h1 {
+    font-size: 26px;
+    font-weight: 700;
+    margin: 0 0 5px 0;
+    letter-spacing: -0.5px;
+    color: #222;
 }
 
-.header-content p { 
-    margin: 0; 
-    color: #666; 
-    font-size: 14px; 
-}
+.header-content p { margin: 0; color: #666; font-size: 14px; }
+.header-content .phone { font-size: 12px; color: #888; margin-top: 5px; }
 
 .social-links { margin-top: 15px; }
 
-.social-links a { 
-    margin-right: 15px; 
-    font-weight: 600; 
-    font-size: 12px; 
-    text-transform: uppercase; 
-    color: #555; 
-    text-decoration: none; 
+.social-links a {
+    margin-right: 15px;
+    font-weight: 600;
+    font-size: 16px;
+    color: #555;
+    text-decoration: none;
     border-bottom: none;
 }
-.social-links a:hover { color: #0056b3; }
+.social-links a:hover { color: #0056b3; border-bottom: none; }
 .social-links i { margin-right: 4px; }
 
 /* =========================================
-   3. NAVIGATION TABS
+   3. LINKS
    ========================================= */
-.nav-tabs { 
-    display: flex; 
-    border-bottom: 1px solid #eee; 
-    margin-bottom: 40px; 
-    padding-bottom: 15px; 
+a {
+    color: #0056b3;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: all 0.2s;
 }
 
-.nav-tabs a { 
-    margin-right: 25px; 
-    font-size: 13px; 
-    font-weight: 700; 
-    text-transform: uppercase; 
-    color: #999; 
-    text-decoration: none; 
-    letter-spacing: 1px; 
-    border-bottom: 2px solid transparent; 
-    padding-bottom: 13px; 
-    transition: 0.3s; 
-}
-
-.nav-tabs a:hover { color: #333; }
-.nav-tabs a.active { color: #333; border-bottom: 2px solid #333; }
-
-/* =========================================
-   4. LINKS (Professional Blue)
-   ========================================= */
-a { 
-    color: #0056b3; 
-    text-decoration: none; 
-    border-bottom: 1px solid transparent; 
-    transition: all 0.2s; 
-}
-
-a:hover { 
+a:hover {
     color: #003d82;
-    border-bottom: 1px solid #003d82; 
+    border-bottom: 1px solid #003d82;
     background-color: rgba(0, 86, 179, 0.05);
 }
 
 /* =========================================
-   5. SECTIONS & ACCORDIONS
+   4. SECTIONS & ACCORDIONS
    ========================================= */
 section { margin-bottom: 45px; }
 
-/* Default H3 */
-h3 { 
-    font-size: 13px; 
-    text-transform: uppercase; 
-    letter-spacing: 1.5px; 
-    color: #999; 
-    margin-bottom: 25px; 
-    font-weight: 700; 
-    border-bottom: 1px solid #eee; 
-    padding-bottom: 10px; 
+h3 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #999;
+    margin-bottom: 25px;
+    font-weight: 700;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
 }
 
-/* Clickable Accordion H3 */
 h3.accordion-header {
     cursor: pointer;
     display: flex;
@@ -146,46 +112,44 @@ h3.accordion-header {
     transition: color 0.2s, background-color 0.2s;
     padding: 10px;
     border-radius: 5px;
+    user-select: none;
 }
 
-h3.accordion-header:hover {
-    background-color: #f7f7f7;
-    color: #333;
-}
+h3.accordion-header:hover { background-color: #f7f7f7; color: #333; }
+h3.accordion-header:focus-visible { outline: 2px solid #0056b3; outline-offset: 2px; }
 
-h3.accordion-header .icon {
-    font-size: 12px;
-    transition: transform 0.3s ease;
-}
+h3.accordion-header .icon { font-size: 12px; transition: transform 0.3s ease; }
+h3.accordion-header.active .icon { transform: rotate(180deg); }
 
-h3.accordion-header.active .icon {
-    transform: rotate(180deg);
-}
-
-/* Accordion Content Box */
 .accordion-content {
-    display: none; /* Hidden by default */
+    display: none;
     padding: 10px 10px 20px 10px;
+}
+
+.accordion-content.open {
+    display: block;
     animation: slideDown 0.3s ease-out;
 }
 
 @keyframes slideDown {
     from { opacity: 0; transform: translateY(-5px); }
-    to { opacity: 1; transform: translateY(0); }
+    to   { opacity: 1; transform: translateY(0); }
 }
+
+.interests { font-size: 13px; list-style-type: square; padding-left: 20px; }
 
 /* =========================================
-   6. TIMELINE & LISTS
+   5. TIMELINE & LISTS
    ========================================= */
-.timeline { 
-    border-left: 2px solid #f0f0f0; 
-    padding-left: 20px; 
-    margin-left: 5px; 
+.timeline {
+    border-left: 2px solid #f0f0f0;
+    padding-left: 20px;
+    margin-left: 5px;
 }
 
-.timeline-item { 
-    position: relative; 
-    margin-bottom: 30px; 
+.timeline-item {
+    position: relative;
+    margin-bottom: 30px;
     padding: 15px;
     border-radius: 8px;
     transition: transform 0.2s, box-shadow 0.2s;
@@ -197,87 +161,44 @@ h3.accordion-header.active .icon {
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
-.timeline-item::before { 
-    content: ''; 
-    position: absolute; 
-    left: -26px; 
-    top: 20px; 
-    width: 10px; 
-    height: 10px; 
-    background: #fff; 
-    border: 2px solid #444; 
-    border-radius: 50%; 
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -26px;
+    top: 20px;
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    border: 2px solid #444;
+    border-radius: 50%;
 }
 
 .t-title { font-weight: 700; margin: 0; font-size: 15px; color: #222; }
-.t-role { font-weight: 600; font-size: 14px; margin: 2px 0; color: #555; }
-.t-date { font-size: 12px; color: #888; float: right; font-weight: 600; text-transform: uppercase; }
-.t-desc { margin-top: 8px; color: #555; font-size: 13px; }
+.t-role  { font-weight: 600; font-size: 14px; margin: 2px 0; color: #555; }
+.t-date  { font-size: 12px; color: #888; float: right; font-weight: 600; text-transform: uppercase; }
+.t-desc  { margin-top: 8px; color: #555; font-size: 13px; }
 .t-desc ul { margin: 5px 0; padding-left: 18px; }
 .t-desc li { margin-bottom: 4px; }
 
 /* =========================================
-   7. NEWS & QUOTES & FOOTER
+   6. NEWS & QUOTES
    ========================================= */
 .news-item { display: flex; margin-bottom: 15px; font-size: 13px; }
 .news-date { min-width: 90px; font-weight: 700; color: #444; font-size: 12px; text-transform: uppercase; padding-top: 2px; }
 
-.quote-block { 
-    margin-bottom: 25px; 
+.quote-block {
+    margin: 25px 0 0;
     padding: 15px;
     background-color: #fcfcfc;
-    border-left: 3px solid #eee; 
+    border-left: 3px solid #eee;
     border-radius: 4px;
 }
-.quote-text { font-style: italic; color: #555; margin-bottom: 5px; display: block; }
+.quote-text   { font-style: italic; color: #555; margin-bottom: 5px; display: block; }
 .quote-author { font-size: 12px; font-weight: 700; text-align: right; color: #333; display: block; }
 
-
 /* =========================================
-   8. DARK MODE
+   7. THEME TOGGLE BUTTON
    ========================================= */
-body.dark-mode {
-    background-color: #121212;
-    color: #e0e0e0;
-}
-
-body.dark-mode .main-wrapper {
-    background-color: #1e1e1e;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-}
-
-body.dark-mode .header-content h1, 
-body.dark-mode .t-title,
-body.dark-mode .news-date,
-body.dark-mode .quote-author {
-    color: #fff;
-}
-
-body.dark-mode .header-content p, 
-body.dark-mode .t-role,
-body.dark-mode .t-desc,
-body.dark-mode .quote-text {
-    color: #b0b0b0;
-}
-
-body.dark-mode .avatar { border-color: #333; }
-body.dark-mode .nav-tabs { border-bottom-color: #333; }
-body.dark-mode .nav-tabs a:hover, body.dark-mode .nav-tabs a.active { color: #fff; border-bottom-color: #fff; }
-body.dark-mode h3 { border-bottom-color: #333; }
-
-/* Dark Mode Links */
-body.dark-mode a { color: #8ab4f8; }
-body.dark-mode a:hover { background-color: rgba(138, 180, 248, 0.1); border-bottom-color: #8ab4f8; }
-
-/* Dark Mode Accordion */
-body.dark-mode h3.accordion-header:hover { background-color: #333; color: #fff; }
-body.dark-mode .timeline { border-left-color: #333; }
-body.dark-mode .timeline-item:hover { background-color: #252525; box-shadow: none; }
-body.dark-mode .timeline-item::before { background-color: #1e1e1e; border-color: #888; }
-body.dark-mode .quote-block { background-color: #252525; border-left-color: #444; }
-body.dark-mode footer { border-top-color: #333; }
-
-/* Theme Toggle Button */
 .theme-toggle-btn {
     position: fixed;
     bottom: 20px;
@@ -289,18 +210,61 @@ body.dark-mode footer { border-top-color: #333; }
     border-radius: 50px;
     cursor: pointer;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    font-family: inherit;
     font-size: 14px;
     z-index: 1000;
     transition: transform 0.3s;
 }
 .theme-toggle-btn:hover { transform: scale(1.05); }
+.theme-toggle-btn:focus-visible { outline: 2px solid #8ab4f8; outline-offset: 2px; }
+
+/* =========================================
+   8. DARK MODE
+   ========================================= */
+body.dark-mode { background-color: #121212; color: #e0e0e0; }
+
+body.dark-mode .main-wrapper {
+    background-color: #1e1e1e;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+body.dark-mode .header-content h1,
+body.dark-mode .t-title,
+body.dark-mode .news-date,
+body.dark-mode .quote-author { color: #fff; }
+
+body.dark-mode .header-content p,
+body.dark-mode .t-role,
+body.dark-mode .t-desc,
+body.dark-mode .quote-text { color: #b0b0b0; }
+
+body.dark-mode .t-date { color: #999; }
+body.dark-mode .avatar { border-color: #333; }
+body.dark-mode h3 { border-bottom-color: #333; }
+body.dark-mode .social-links a { color: #ccc; }
+body.dark-mode .social-links a:hover { color: #8ab4f8; }
+
+body.dark-mode a { color: #8ab4f8; }
+body.dark-mode a:hover { background-color: rgba(138, 180, 248, 0.1); border-bottom-color: #8ab4f8; }
+
+body.dark-mode h3.accordion-header:hover { background-color: #333; color: #fff; }
+body.dark-mode h3.accordion-header:focus-visible { outline-color: #8ab4f8; }
+body.dark-mode .timeline { border-left-color: #333; }
+body.dark-mode .timeline-item:hover { background-color: #252525; box-shadow: none; }
+body.dark-mode .timeline-item::before { background-color: #1e1e1e; border-color: #888; }
+body.dark-mode .quote-block { background-color: #252525; border-left-color: #444; }
 
 /* =========================================
    9. MOBILE RESPONSIVE
    ========================================= */
 @media (max-width: 600px) {
-    .main-wrapper { margin: 0; padding: 20px; border-radius: 0; box-shadow: none;}
-    header { flex-direction: column; text-align: center; gap: 15px;}
-    .t-date { float: none; display: block; margin-bottom: 4px;}
-    .nav-tabs { justify-content: center; }
+    .main-wrapper { margin: 0; padding: 20px; border-radius: 0; box-shadow: none; }
+    header { flex-direction: column; text-align: center; gap: 15px; }
+    .t-date { float: none; display: block; margin-bottom: 4px; }
+    .news-item { flex-direction: column; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    html { scroll-behavior: auto; }
 }
